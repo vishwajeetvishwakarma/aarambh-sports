@@ -1,0 +1,207 @@
+{% load static %}
+<script type="text/javascript" src="{% static 'product-filter.js' %}"></script>
+			<h3 class="mb-4 border-bottom pb-1">Filters</h3>
+			<!-- Price Filter -->
+		 <div class="card mb-4">
+				<h6 class="card-header">Price</h6>
+				<div class="list-group list-group-flush">
+					<li class="list-group-item">
+						<input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value" />
+						<p>{{minMaxPrice.price__min}}-{{minMaxPrice.price__max}}</p>
+					</li>
+					<li class="list-group-item">
+						Max: <input type="number" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} class="form-control" id="maxPrice" onkeyup="rangeInput.value=this.value" id="maxPrice" />
+						<button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+					</li>
+				</div>
+			</div>
+			<!-- Filter 1 -->
+			<div class="card mb-4">
+				<h6 class="card-header">Colors</h6>
+				<div class="list-group list-group-flush">
+					{% for color in colors %}
+					<li class="list-group-item">
+						<input class="filter-checkbox" data-filter="color" value="{{color.color__id}}" type="checkbox" />&nbsp;
+						<button class="btn" style="background-color: {{color.color__color_code}}; margin-top: -5px;"></button>
+					</li>
+					{% endfor %}
+				</div>
+			</div>
+			<!-- Filter 2 -->
+			<div class="card mb-4">
+				<h6 class="card-header">Categories</h6>
+				<div class="list-group list-group-flush">
+					{% for cat in cats %}
+					<li class="list-group-item">
+						<input class="filter-checkbox" data-filter="category" value="{{cat.category__id}}" type="checkbox" />&nbsp;
+						{{cat.category__title}}
+					</li>
+					{% endfor %}
+				</div>
+			</div>
+			<!-- Filter 3 -->
+			<div class="card mb-4">
+				<h6 class="card-header">Brands</h6>
+				<div class="list-group list-group-flush">
+					{% for brand in brands %}
+					<li class="list-group-item">
+						<input class="filter-checkbox" data-filter="brand" value="{{brand.brand__id}}" type="checkbox" />&nbsp;
+						{{brand.brand__title}}
+					</li>
+					{% endfor %}
+				</div>
+			</div>
+			<!-- Filter 3 -->
+			<div class="card mb-4">
+				<h6 class="card-header">Sizes</h6>
+				<div class="list-group list-group-flush">
+					{% for size in sizes %}
+					<li class="list-group-item">
+						<input class="filter-checkbox" data-filter="size" value="{{size.size__id}}" type="checkbox" />&nbsp;
+						{{size.size__title}}
+					</li>
+					{% endfor %}
+				</div>
+			</div>
+
+{% comment %} 
+<div class="w-100">
+
+	<div class="accordion card mb-4 " id="accordionExample">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingOne">
+				<button class="accordion-button btn w-100 btn-outline-dark " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					Price
+				</button>
+			</h2>
+			<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<div class="list-group list-group-flush">
+						<li class="list-group-item">
+							<input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value" />
+							<p>{{minMaxPrice.price__min}}-{{minMaxPrice.price__max}}</p>
+						</li>
+						<li class="list-group-item">
+							Max: <input type="number" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} class="form-control" id="maxPrice" onkeyup="rangeInput.value=this.value" id="maxPrice" />
+							<button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+						</li>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingTwo">
+				<button class="accordion-button collapsed btn w-100 btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					Colors
+				</button>
+			</h2>
+			<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<div class="list-group list-group-flush">
+						{% for color in colors %}
+						<li class="list-group-item">
+							<input class="filter-checkbox" data-filter="color" value="{{color.color__id}}" type="checkbox" />&nbsp;
+							<button class="btn" style="background-color: {{color.color__color_code}}; margin-top: -5px;"></button>
+						</li>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingThree">
+				<button class="accordion-button collapsed btn w-100 btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					Categories
+					</button>
+				  </h2>
+				  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+					<div class="accordion-body">
+						<div class="list-group list-group-flush">
+							{% for cat in cats %}
+							<li class="list-group-item">
+								<input class="filter-checkbox" data-filter="category" value="{{cat.category__id}}" type="checkbox" />&nbsp;
+								{{cat.category__title}}
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingFoure">
+						<button class="accordion-button collapsed btn w-100 btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+							Brands
+						</button>
+					</h2>
+					<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFoure" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<div class="list-group list-group-flush">
+								{% for brand in brands %}
+								<li class="list-group-item">
+									<input class="filter-checkbox" data-filter="brand" value="{{brand.brand__id}}" type="checkbox" />&nbsp;
+									{{brand.brand__title}}
+								</li>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingFive">
+							<button class="accordion-button collapsed btn w-100 btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								Size
+							</button>
+						</h2>
+						<div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<div class="list-group list-group-flush">
+									{% for size in sizes %}
+							<li class="list-group-item">
+								<input class="filter-checkbox" data-filter="size" value="{{size.size__id}}" type="checkbox" />&nbsp;
+								{{size.size__title}}
+							</li>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			<!-- new  -->
+	<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+</div> {% endcomment %}

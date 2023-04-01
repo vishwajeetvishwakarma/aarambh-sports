@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--Css Of This Page-->
+<style>
+    footer {
+        margin: 50px 0px;
+    }
+
+    .product {
+        padding: 40px 0px;
+        background-color: #f3f2ee;
+    }
+
+    .hero__text p {
+        color: white;
+    }
+
+    .banner__item__text {
+        margin-top: -20px;
+    }
+</style>
+
+<!--Html Code Start From Here-->
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__items set-bg" data-setbg="{% static 'img/bgimg2.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Awesome Collection</h6>
+                            <h2>Best Jerseys For You ...</h2>
+                            <p>A specialist jersey store for all your sports needs
+                                commitment to exceptional quality.</p>
+                            <a href="/shop" class="primary-btn">Shop now <i class="fa-solid fa-arrow-right fa-lg"></i></a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Awesome Collection</h6>
+                            <h2>Best Jerseys For You ...</h2>
+                            <p>A specialist jersey store for all your sports needs
+                                commitment to exceptional quality.</p>
+                            <a href="#" class="primary-btn">Shop now <i class="fa-solid fa-arrow-right fa-lg"></i></a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Banner Section Begin -->
+<section class="banner spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-4">
+                <div class="banner__item">
+                    <div class="banner__item__pic">
+                        <img src="https://cdn.shopify.com/s/files/1/0616/3709/9705/files/Manchester_City_home_160x160@2x.webp?v=1656503040"
+                            alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Jersey Collections</h2>
+                        <a href="/shop">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="banner__item banner__item--middle">
+                    <div class="banner__item__pic">
+                        <img src="https://media.istockphoto.com/id/182790712/photo/soccer-jerseys.jpg?s=612x612&w=0&k=20&c=rQVy-ENttTIJhzPeRA4Oq0Ds9tkmOen9q_YIsNlSXdE="
+                            alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Accessories</h2>
+                        <a href="/shop">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner__item banner__item--last">
+                    <div class="banner__item__pic">
+                        <img src="https://static.toiimg.com/thumb/msid-85553864,width-400,resizemode-4/85553864.jpg"
+                            alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Awesome Collections</h2>
+                        <a href="/shop">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+       <h2 class=" text-center mb-3">New Arrivals</h2>
+        <div class="row product__filter">
+         
+          {% for product in data %}
+          <div class="col-md-3 mb-4">
+            <div class="card shadow product__item sale">
+              <a href="/product/{{product.slug}}/{{product.id}}"><img class="product__item__pic set-bg  " src="/media/{{product.productattribute_set.first.image}}" class="card-img-top" alt="{{product.title|truncatewords:3 }}"></a>
+              <div class="card-body">
+                <h5 class="card-text"><a href="/product/{{product.slug}}/{{product.id}}">{{product.title|truncatewords:3 }}</a></h5>
+                <h6>₹ <span class="product-price-{{product.id}}">{{product.productattribute_set.first.price}}</span></h6>
+              </div>
+              <div class="card-footer">
+                {{product.productattribute_set.first.color.title}}
+                <input type="hidden" value="1" class="form-control product-qty-{{product.id}}" id="productQty" />
+                <input type="hidden" class="product-image-{{product.id}}" value="{{product.productattribute_set.first.image}}" />
+                <input type="hidden" class="product-id-{{product.id}}" value="{{product.id}}" />
+                <input type="hidden" class="product-title-{{product.id}}" value="{{product.title}}" />
+                <button class="btn btn-sm btn-primary add-to-cart" data-index="{{product.id}}"><i class="fa fa-shopping-cart"></i></button>
+                {% if user.is_authenticated %}
+                <button class="btn btn-outline btn-sm btn-danger add-wishlist" data-product="{{product.id}}"><i class="fa fa-heart"></i></button>
+                {% else %}
+                <button class="btn btn-sm btn-danger disabled"><i class="fa fa-heart"></i></button>
+                {% endif %}
+                <span class="float-right">
+                  4.5/5
+                  <i class="fa fa-star text-warning"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+         
+
+                {% comment %} {% for product in data %}
+                    
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix <%=Product.selling_strategy%>">
+                      <a href="/product/{{product.slug}}/{{product.id}}">
+                        <div class="product__item sale">
+
+                            <div class="product__item__pic set-bg" data-setbg="/media/{{product.productattribute_set.first.image}}" class="card-img-top" alt="{{product.title}}">
+                              <span class="label">{{product.title}}</span>
+                            </div>
+                            <div class="product__item__text">
+                                <h6>{{product.title}}</h6>
+                                <form action="/addtocart" method="post">
+                                  <input type="hidden" name="id" value="<%= Product.id%>">
+                                  <button type="submit"  >+ Add To Cart</button>
+                                </form>
+                                <div class="rating">
+                                  <i class="fa  fa-star"></i>
+                                  <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                   
+                                    <a class="viewpro float-sm-right" href="/product/{{product.slug}}/{{product.id}}" role="button">Visit Product</a>
+                                  </div>
+                                <h5>₹{{product.productattribute_set.first.price}}</h5>
+                              </div>
+                            </div>
+                          </a>
+                          </div>
+                    {%endfor%} {% endcomment %}
+
+                    
+                    
+                  </div>
+    </div>
+</section>
+<!-- Product Section End -->
+
+<!-- Categories Section Begin -->
+<!-- <section class="categories spad">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+<div class="categories__text">
+    <h2>Clothings Hot <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="categories__hot__deal">
+    <img src="img/product-sale.png" alt="">
+    <div class="hot__deal__sticker">
+        <span>Sale Of</span>
+        <h5>₹29.99</h5>
+    </div>
+</div>
+</div>
+<div class="col-lg-4 offset-lg-1">
+<div class="categories__deal__countdown">
+    <span>Deal Of The Week</span>
+    <h2>Multi-pocket Chest Bag Black</h2>
+    <div class="categories__deal__countdown__timer" id="countdown">
+        <div class="cd-item">
+            <span>3</span>
+            <p>Days</p>
+        </div>
+        <div class="cd-item">
+            <span>1</span>
+            <p>Hours</p>
+        </div>
+        <div class="cd-item">
+            <span>50</span>
+            <p>Minutes</p>
+        </div>
+        <div class="cd-item">
+            <span>18</span>
+            <p>Seconds</p>
+        </div>
+    </div>
+    <a href="#" class="primary-btn">Shop now</a>
+</div>
+</div>
+</div>
+</div>
+</section> -->
+<!-- Categories Section End -->
+
+<!-- Instagram Section Begin -->
+<section class="instagram spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="instagram__pic">
+                    <div class="instagram__pic__item set-bg"
+                        data-setbg="https://c4.wallpaperflare.com/wallpaper/631/334/425/cristiano-ronaldo-real-madrid-sport-soccer-wallpaper-preview.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                        data-setbg="https://thumblr.uniid.it/base_navigation_item/13/906f6843a375.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                        data-setbg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-enXHbaqLRKtyt94BiyIepR2wjb-TFWzmTA&usqp=CAU"></div>
+                    <div class="instagram__pic__item set-bg"
+                        data-setbg="img/instagram/instagram-4.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                        data-setbg="https://www.mlbshop.com/content/ws/495942/TLP_Mob_B_Jerseys_boston.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                        data-setbg="https://cdn.shopify.com/s/files/1/0440/1931/8942/collections/barcelona-2020-pre-match-shirt_420x.jpg?v=1629397423U"></div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="instagram__text">
+                    <h2>Instagram</h2>
+                    <p>Your Instagram Handle Here ...</p>
+                    <h3>AARAMBH SPORTS</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
