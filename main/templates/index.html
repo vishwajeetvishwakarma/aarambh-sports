@@ -20,12 +20,13 @@
     .banner__item__text {
         margin-top: -20px;
     }
+
 </style>
 
 <!--Html Code Start From Here-->
 <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="{% static 'img/bgimg2.jpg' %}">
+        <div class="hero__items set-bg" data-setbg="https://images6.alphacoders.com/614/614633.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -46,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
+        <div class="hero__items set-bg" data-setbg="https://cdn.sportslumo.com/wp-content/uploads/2021/05/16111707/J-12-1-1024x576.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -78,7 +79,7 @@
             <div class="col-lg-7 offset-lg-4">
                 <div class="banner__item">
                     <div class="banner__item__pic">
-                        <img src="https://cdn.shopify.com/s/files/1/0616/3709/9705/files/Manchester_City_home_160x160@2x.webp?v=1656503040"
+                        <img class="bannerpic" src="https://cdn.shopify.com/s/files/1/0616/3709/9705/files/Manchester_City_home_160x160@2x.webp?v=1656503040"
                             alt="">
                     </div>
                     <div class="banner__item__text">
@@ -115,7 +116,64 @@
     </div>
 </section>
 <!-- Banner Section End -->
-
+<!-- <section>
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <div class="product-grid">
+            <div class="product-image">
+                <a href="#" class="image">
+                    <img class="pic-1" src="images/img-1.jpg">
+                    <img class="pic-2" src="images/img-2.jpg">
+                </a>
+                <ul class="product-links">
+                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="#"><i class="far fa-heart"></i></a></li>
+                    <li><a href="#"><i class="fa fa-random"></i></a></li>
+                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                </ul>
+            </div>
+            <div class="product-content">
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="far fa-star"></li>
+                </ul>
+                <h3 class="title"><a href="#">Women's Blouse Top</a></h3>
+                <div class="price">$85.55</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="product-grid">
+            <div class="product-image">
+                <a href="#" class="image">
+                    <a href="/product/{{product.slug}}/{{product.id}}"><img class="product__item__pic set-bg  " src="/media/{{product.productattribute_set.first.image}}" class="card-img-top" alt="{{product.title|truncatewords:3 }}"></a>
+                    <img class="pic-2" src="images/img-4.jpg">
+                </a>
+                <ul class="product-links">
+                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="#"><i class="far fa-heart"></i></a></li>
+                    <li><a href="#"><i class="fa fa-random"></i></a></li>
+                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                </ul>
+            </div>
+            <div class="product-content">
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="far fa-star"></li>
+                    <li class="far fa-star"></li>
+                </ul>
+                <h3 class="title"><a href="#">Men's Jacket</a></h3>
+                <div class="price">$88.88</div>
+            </div>
+        </div>
+    </div>
+</div>
+</section> -->
 <!-- Product Section Begin -->
 <section class="product spad">
     <div class="container">
@@ -251,9 +309,9 @@
                     <div class="instagram__pic__item set-bg"
                         data-setbg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-enXHbaqLRKtyt94BiyIepR2wjb-TFWzmTA&usqp=CAU"></div>
                     <div class="instagram__pic__item set-bg"
-                        data-setbg="img/instagram/instagram-4.jpg"></div>
+                        data-setbg="https://www.si.com/.image/c_fit%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_620/MTg0OTc3NTU2NTkwNTY4OTM1/bostonceltics_final_105563.jpg"></div>
                     <div class="instagram__pic__item set-bg"
-                        data-setbg="https://www.mlbshop.com/content/ws/495942/TLP_Mob_B_Jerseys_boston.jpg"></div>
+                        data-setbg="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ijJW.IogaCF0/v1/1200x-1.jpg"></div>
                     <div class="instagram__pic__item set-bg"
                         data-setbg="https://cdn.shopify.com/s/files/1/0440/1931/8942/collections/barcelona-2020-pre-match-shirt_420x.jpg?v=1629397423U"></div>
                 </div>
