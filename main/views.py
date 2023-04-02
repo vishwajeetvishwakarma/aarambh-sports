@@ -305,6 +305,7 @@ def checkout(request):
         # context['address'] = address
         address = UserAddressBook.objects.filter(
             user=request.user, status=True).first()
+        context['address'] = address
         return render(request, 'checkout.html', context)
 
 
