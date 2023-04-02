@@ -81,7 +81,7 @@
                                 <button class="btn" type="submit"><img src="{% static 'public/img/icon/search.png' %}" alt=""></button>
                             </div>
                         </form>
-                        <a class="cart"  href="{% url 'cart' %}"><img style="height:22px;width: 25px;" src="{% static 'public/img/icon/cart.png' %}" alt=""> <span style="font-size: 15px; padding: 1px 2px;">
+                        <a class="cart"  href="{% url 'cart' %}"><img style="height:22px;width: 25px;" src="{% static 'public/img/icon/cart.png' %}" alt=""> <span style="font-size: 15px;margin-bottom: 2px; padding: 0px 2px;font-weight: bold; text-align: center;">
                             {{request.session.cartdata|length}}</span></a>
                     </div>
                 </div>

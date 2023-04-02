@@ -85,8 +85,7 @@ textarea:focus {
 	outline: none;
 }
 
-a:hover,
-a:focus {
+a:hover,a:focus {
 	text-decoration: none;
 	outline: none;
 	color: #ffffff;
@@ -419,11 +418,11 @@ ol {
 	position: relative;
 }
 
-.header__menu ul li.active a:after {
+/* .header__menu ul li.active a:after {
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
 	transform: scale(1);
-}
+} */
 
 .header__menu ul li:hover a:after {
 	-webkit-transform: scale(1);
@@ -633,6 +632,7 @@ ol {
 	-webkit-transition: all, 1.1s;
 	-o-transition: all, 1.1s;
 	transition: all, 1.1s;
+	text-decoration: none;
 }
 
 .hero__text .primary-btn span {
@@ -655,6 +655,15 @@ ol {
 
 .hero__social a:last-child {
 	margin-right: 0;
+}
+
+.insta-icon {
+	margin-top: -20px;
+	margin-bottom: 20px;
+	font-size: 50px;
+	color: white;
+	display: inline-block;
+	margin-right: 32px;
 }
 
 /*---------------------
@@ -723,7 +732,11 @@ ol {
 	padding: 3px 0;
 	position: relative;
 }
-
+.insta{
+	font-size: 1.7rem;
+	color:black;
+	font-family:'Times New Roman', Times, serif
+}
 .banner__item__text a:after {
 	position: absolute;
 	left: 0;
@@ -735,6 +748,7 @@ ol {
 	-webkit-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
+	text-decoration: none;
 }
 
 /*---------------------
@@ -896,7 +910,7 @@ ol {
 }
 
 .instagram__text h3 {
-	color: #e53637;
+	color: #1f0202;
 	font-weight: 700;
 }
 
@@ -3429,6 +3443,9 @@ box-shadow: 22px -17px 12px -8px rgba(26,7,26,0.65);
 
 	.header__nav__option a {
 		margin-right: 10px;
+	}
+	#logo1{
+		max-width: 90%;
 	}
 
 	.header__nav__option .price {
