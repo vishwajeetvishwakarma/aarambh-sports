@@ -28,6 +28,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+
 h1,
 h2,
 h3,
@@ -84,8 +85,7 @@ textarea:focus {
 	outline: none;
 }
 
-a:hover,
-a:focus {
+a:hover,a:focus {
 	text-decoration: none;
 	outline: none;
 	color: #ffffff;
@@ -418,11 +418,11 @@ ol {
 	position: relative;
 }
 
-.header__menu ul li.active a:after {
+/* .header__menu ul li.active a:after {
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
 	transform: scale(1);
-}
+} */
 
 .header__menu ul li:hover a:after {
 	-webkit-transform: scale(1);
@@ -479,6 +479,7 @@ ol {
 	display: block;
 	font-weight: 600;
 	position: relative;
+	text-decoration: none;
 	padding: 3px 0;
 }
 
@@ -631,6 +632,7 @@ ol {
 	-webkit-transition: all, 1.1s;
 	-o-transition: all, 1.1s;
 	transition: all, 1.1s;
+	text-decoration: none;
 }
 
 .hero__text .primary-btn span {
@@ -653,6 +655,15 @@ ol {
 
 .hero__social a:last-child {
 	margin-right: 0;
+}
+
+.insta-icon {
+	margin-top: -20px;
+	margin-bottom: 20px;
+	font-size: 50px;
+	color: white;
+	display: inline-block;
+	margin-right: 32px;
 }
 
 /*---------------------
@@ -721,7 +732,11 @@ ol {
 	padding: 3px 0;
 	position: relative;
 }
-
+.insta{
+	font-size: 1.7rem;
+	color:black;
+	font-family:'Times New Roman', Times, serif
+}
 .banner__item__text a:after {
 	position: absolute;
 	left: 0;
@@ -733,6 +748,7 @@ ol {
 	-webkit-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
+	text-decoration: none;
 }
 
 /*---------------------
@@ -894,7 +910,7 @@ ol {
 }
 
 .instagram__text h3 {
-	color: #e53637;
+	color: #1f0202;
 	font-weight: 700;
 }
 
@@ -1007,6 +1023,13 @@ ol {
 	visibility: visible;
 }
 
+/* .bannerpic{
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+	-webkit-box-shadow: 22px -17px 12px -8px rgba(26,7,26,0.65);
+-moz-box-shadow: 22px -17px 12px -8px rgba(26,7,26,0.65);
+box-shadow: 22px -17px 12px -8px rgba(26,7,26,0.65);
+} */
+
 .product__item__pic .product__hover li span {
 	color: #ffffff;
 	background: #111111;
@@ -1058,21 +1081,23 @@ ol {
 	top: 0;
 	opacity: 0;
 	visibility: hidden;
-	cursor:pointer;
+	cursor: pointer;
 	-webkit-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
 }
-.viewpro{
-	
-	color:black;
-	font-size:20px;
-	font-family:sans-serif;
-	font-weight:54;
+
+.viewpro {
+
+	color: black;
+	font-size: 20px;
+	font-family: sans-serif;
+	font-weight: 54;
 }
-.viewpro:hover{
-	cursor:pointer;
-	color:black;
+
+.viewpro:hover {
+	cursor: pointer;
+	color: black;
 }
 
 
@@ -1960,7 +1985,7 @@ ol {
 
 .footer__about .footer__logo a {
 	display: inline-block;
-	color:whitesmoke;
+	color: whitesmoke;
 }
 
 .footer__about p {
@@ -3387,7 +3412,7 @@ ol {
 		font-size: 26px;
 	}
 
-	#logo1{
+	#logo1 {
 		width: 50%;
 	}
 
@@ -3406,6 +3431,7 @@ ol {
 	.testimonial__text {
 		padding: 130px 45px 175px;
 	}
+
 }
 
 /* Tablet Device = 768px */
@@ -3417,6 +3443,9 @@ ol {
 
 	.header__nav__option a {
 		margin-right: 10px;
+	}
+	#logo1{
+		max-width: 90%;
 	}
 
 	.header__nav__option .price {
@@ -3497,10 +3526,10 @@ ol {
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
-	#logo1{
+	#logo1 {
 		width: 50%;
 	}
-	
+
 	.canvas__open {
 		display: block;
 		font-size: 22px;
@@ -3907,17 +3936,19 @@ ol {
 
 /* Small Device = 320pchart.jpegx */
 
-@media only screen and (max-width: 479px) {
-	#logo1{
-		width: 40%;
+@media only screen and (max-width: 480px) {
+	#logo1 {
+		width: 90%;
+		height: 60%;
+		top: 0px;
 	}
-	
+
+
+
 	.cart__total {
 		padding: 35px 30px 40px;
 	}
-	.logo1{
-		max-width:60%;
-	}
+
 	.hero__items {
 		height: auto;
 		padding-top: 130px;
@@ -3928,7 +3959,7 @@ ol {
 		font-size: 36px;
 		line-height: 48px;
 	}
-	
+
 
 	.hero__social {
 		margin-top: 145px;
@@ -4117,4 +4148,158 @@ ol {
 	background-color: rgba(0,0,0,.5);
 } */
 
+.product-grid {
+	background-color: #fff;
+	font-family: 'Work Sans', sans-serif;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+}
 
+.product-grid:hover {
+	box-shadow: 0 0 20px -10px rgba(237, 29, 36, 0.3);
+}
+
+.product-grid .product-image {
+	overflow: hidden;
+	position: relative;
+	transition: all 0.3s ease 0s;
+}
+
+.product-grid:hover .product-image {
+	border-radius: 0 0 30px 30px;
+}
+
+.product-grid .product-image a.image {
+	display: block;
+}
+
+.product-grid .product-image img {
+	width: 100%;
+	height: auto;
+}
+
+.product-image .pic-1 {
+	backface-visibility: hidden;
+	transition: all 0.5s ease 0s;
+}
+
+.product-grid:hover .product-image .pic-1 {
+	opacity: 0;
+}
+
+.product-image .pic-2 {
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.5s ease 0s;
+}
+
+.product-grid:hover .product-image .pic-2 {
+	opacity: 1;
+}
+
+.product-grid .product-links {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	opacity: 0;
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	transition: all 0.3s ease 0s;
+}
+
+.product-grid:hover .product-links {
+	opacity: 1;
+}
+
+.product-grid .product-links li {
+	margin: 0 0 10px 0;
+	transform: rotate(360deg) scale(0);
+	transition: all 0.3s ease 0s;
+}
+
+.product-grid:hover .product-links li {
+	transform: rotate(0) scale(1);
+}
+
+.product-grid:hover .product-links li:nth-child(3) {
+	transition-delay: 0.1s;
+}
+
+.product-grid:hover .product-links li:nth-child(2) {
+	transition-delay: 0.2s;
+}
+
+.product-grid:hover .product-links li:nth-child(1) {
+	transition-delay: 0.3s;
+}
+
+.product-grid .product-links li a {
+	color: #666;
+	background-color: #fff;
+	font-size: 18px;
+	line-height: 42px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	display: block;
+	transition: all 0.3s ease 0s;
+}
+
+.product-grid .product-links li a:hover {
+	color: #fff;
+	background-color: #ed1d24;
+}
+
+.product-grid .product-content {
+	text-align: left;
+	padding: 15px 10px;
+}
+
+.product-grid .rating {
+	padding: 0;
+	margin: 0 0 7px;
+	list-style: none;
+}
+
+.product-grid .rating li {
+	color: #f7bc3d;
+	font-size: 13px;
+}
+
+.product-grid .rating li.far {
+	color: #777;
+}
+
+.product-grid .title {
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: capitalize;
+	margin: 0 0 6px;
+}
+
+.product-grid .title a {
+	color: #555;
+	transition: all 0.3s ease 0s;
+}
+
+.product-grid .title a:hover {
+	color: #ed1d24;
+}
+
+.product-grid .price {
+	color: #ed1d24;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+@media screen and (max-width:990px) {
+	.product-grid {
+		margin: 0 0 30px;
+	}
+}

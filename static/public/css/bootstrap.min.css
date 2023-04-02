@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-    --blue: #007bff;
+    /* --blue: #007bff; */
     --indigo: #6610f2;
     --purple: #6f42c1;
     --pink: #e83e8c;
@@ -167,13 +167,13 @@ sup {
 }
 
 a {
-    color: #007bff;
+    color: #0000;
     text-decoration: none;
     background-color: transparent
 }
 
 a:hover {
-    color: #0056b3;
+    color: #0000;
     text-decoration: underline
 }
 
@@ -5266,7 +5266,7 @@ input[type=submit].btn-block {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     min-height: 1px;
-    padding: 1.25rem
+    padding: 1rem;
 }
 
 .card-title {
