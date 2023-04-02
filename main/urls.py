@@ -25,9 +25,9 @@ urlpatterns = [
     path('update-cart', views.update_cart_item, name='update-cart'),
     path('accounts/signup', views.signup, name='signup'),
     path('checkout', views.checkout, name='checkout'),
-    path('paypal/', include('paypal.standard.ipn.urls')),
-    path('payment-done/', views.payment_done, name='payment_done'),
-    path('payment-cancelled/', views.payment_canceled, name='payment_cancelled'),
+#     path('paypal/', include('paypal.standard.ipn.urls')),
+#     path('payment-done/', views.payment_done, name='payment_done'),
+#     path('payment-cancelled/', views.payment_canceled, name='payment_cancelled'),
     path('save-review/<int:pid>', views.save_review, name='save-review'),
     # User Section Start
     path('my-dashboard', views.my_dashboard, name='my_dashboard'),
@@ -46,6 +46,8 @@ urlpatterns = [
     path('activate-address', views.activate_address, name='activate-address'),
     path('update-address/<int:id>', views.update_address, name='update-address'),
     path('edit-profile', views.edit_profile, name='edit-profile'),
+    #razorpay payments handlers
+    path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
 ]
 
 if settings.DEBUG:
