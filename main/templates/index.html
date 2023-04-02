@@ -21,12 +21,47 @@
         margin-top: -20px;
     }
 
+    #ff{
+        width: 100%;
+        /* height: 20px; */
+    }
+
+
+    .arrow_left,.arrow_right{
+	    color: grey;
+    }
+
+
+    .hero__text h6{ 
+       font-weight: bold;
+       color: yellow;
+       font-size: 17px;
+    }
+    
+    @media only screen and (max-width: 480px) {
+        #logo1{
+            width: 70%;
+        }
+        
+            .header__nav__option {
+            margin: -39px 0px;
+        }
+        
+        .hero__items{
+            margin: 20px 0px;
+        }
+    }
 </style>
+
+<!-- WhatsApp Integration -->
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-b4372d93-b6e5-46b4-ba93-4a06617963f7"></div>
 
 <!--Html Code Start From Here-->
 <section class="hero">
     <div class="hero__slider owl-carousel">
         <div class="hero__items set-bg" data-setbg="https://images6.alphacoders.com/614/614633.jpg">
+            <!-- data-setbg="https://images6.alphacoders.com/614/614633.jpg" -->
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -47,7 +82,29 @@
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="https://cdn.sportslumo.com/wp-content/uploads/2021/05/16111707/J-12-1-1024x576.jpg">
+
+        <div class="hero__items set-bg" data-setbg="https://c4.wallpaperflare.com/wallpaper/378/1020/6/cristiano-ronaldo-juventus-soccer-real-madrid-wallpaper-preview.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Awesome Collection</h6>
+                            <h2>Best Jerseys For You ...</h2>
+                            <p>A specialist jersey store for all your sports needs
+                                commitment to exceptional quality.</p>
+                            <a href="#" class="primary-btn">Shop now <i class="fa-solid fa-arrow-right fa-lg"></i></a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="https://pbs.twimg.com/media/Ff_rF9NaYAA5rpL?format=jpg&name=large">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -179,7 +236,7 @@
     <div class="container">
        <h2 class=" text-center mb-3">New Arrivals</h2>
         <div class="row product__filter">
-         
+            
           {% for product in data %}
           <div class="col-md-3 mb-4">
             <div class="card shadow product__item sale">
