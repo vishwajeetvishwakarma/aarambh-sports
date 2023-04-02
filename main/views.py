@@ -281,12 +281,12 @@ def checkout(request):
         # Process Payment
         host = request.get_host()
         currency = 'INR'
-        amount = 20000  # Rs. 200
+        amount = total_amt * 100  # Rs. 200
 
         # Create a Razorpay Order
         razorpay_order = razorpay_client.order.create(dict(amount=amount,
                                                            currency=currency,
-                                                           payment_capture=1))
+                                                           payment_capture=0))
 
         # order id of newly created order.
         razorpay_order_id = razorpay_order['id']
@@ -305,7 +305,7 @@ def checkout(request):
         # context['address'] = address
         address = UserAddressBook.objects.filter(
             user=request.user, status=True).first()
-        return render(request, 'checkout.html',context)
+        return render(request, 'checkout.html', context)
 
 
 @csrf_exempt
@@ -336,15 +336,15 @@ def paymenthandler(request):
                     razorpay_client.payment.capture(payment_id, amount)
 
                     # render success page on successful caputre of payment
-                    return render(request, 'paymentsuccess.html')
+                    return render(request, 'payment/paymentsuccess.html')
                 except:
 
                     # if there is an error while capturing payment.
-                    return render(request, 'paymentfail.html')
+                    return render(request, 'payment/paymentfailed.html')
             else:
 
                 # if signature verification fails.
-                return render(request, 'paymentfail.html')
+                return render(request, 'payment/paymentfailed.html')
         except:
 
             # if we don't find the required parameters in POST data
