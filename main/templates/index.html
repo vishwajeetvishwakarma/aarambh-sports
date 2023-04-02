@@ -58,9 +58,9 @@
 <div class="elfsight-app-b4372d93-b6e5-46b4-ba93-4a06617963f7"></div>
 
 <!--Html Code Start From Here-->
-<section class="hero">
-    <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="https://images6.alphacoders.com/614/614633.jpg">
+<section class="hero" data-interval="500">
+    <div class="hero__slider owl-carousel" data-interval="500">
+        <div class="hero__items set-bg" data-interval="500" data-setbg="https://images6.alphacoders.com/614/614633.jpg">
             <!-- data-setbg="https://images6.alphacoders.com/614/614633.jpg" -->
             <div class="container">
                 <div class="row">
@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <div class="hero__items set-bg" data-setbg="https://c4.wallpaperflare.com/wallpaper/378/1020/6/cristiano-ronaldo-juventus-soccer-real-madrid-wallpaper-preview.jpg">
+        <div class="hero__items set-bg" data-interval="500" data-setbg="https://c4.wallpaperflare.com/wallpaper/378/1020/6/cristiano-ronaldo-juventus-soccer-real-madrid-wallpaper-preview.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -240,10 +240,10 @@
           {% for product in data %}
           <div class="col-md-3 mb-4">
             <div class="card shadow product__item sale">
-              <a href="/product/{{product.slug}}/{{product.id}}"><img class="product__item__pic set-bg  " src="/media/{{product.productattribute_set.first.image}}" class="card-img-top" alt="{{product.title|truncatewords:3 }}"></a>
+              <a href="/product/{{product.slug}}/{{product.id}}"><img class="product__item__pic set-bg  " src="/media/{{product.productattribute_set.first.image}}" class="card-img-top" alt="{{product.title|truncatewords:10 }}"></a>
               <div class="card-body">
-                <h5 class="card-text"><a href="/product/{{product.slug}}/{{product.id}}">{{product.title|truncatewords:3 }}</a></h5>
-                <h6>₹ <span class="product-price-{{product.id}}">{{product.productattribute_set.first.price}}</span></h6>
+                <h5 class="card-text"><a style="color: black;font-size: 15px;font-weight: bold;" href="/product/{{product.slug}}/{{product.id}}">{{product.title|truncatewords:10 }}</a></h5>
+                <h6>₹ <span style="color: green;" class="product-price-{{product.id}}">{{product.productattribute_set.first.price}}</span></h6>
               </div>
               <div class="card-footer">
                 {{product.productattribute_set.first.color.title}}
@@ -255,7 +255,7 @@
                 {% if user.is_authenticated %}
                 <button class="btn btn-outline btn-sm btn-danger add-wishlist" data-product="{{product.id}}"><i class="fa fa-heart"></i></button>
                 {% else %}
-                <button class="btn btn-sm btn-danger disabled"><i class="fa fa-heart"></i></button>
+                <button class="btn btn-sm  btn-outline-dark"><i class="fa fa-heart"></i></button>
                 {% endif %}
                 <span class="float-right">
                   4.5/5

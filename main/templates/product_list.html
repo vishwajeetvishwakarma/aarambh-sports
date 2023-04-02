@@ -7,8 +7,8 @@
 		<div class="col-md-3">
 			<div class="accordion" id="accordionExample">
 				<div class="accordion-item">
-				  <h2 class="accordion-header" id="headingOne">
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				  <h2 style="text-align: center;" class="accordion-header" id="headingOne">
+					<button style= " text-align: center; color: black;font-weight: bold;background-color: white; font-size: 17px; padding: 10px 10px;border-radius: 6px;" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 					  Filter's <i class="fa-solid fa-arrow-up-wide-short"></i>
 					</button>
 				  </h2>
@@ -31,10 +31,10 @@
 				{% for product in data %}
 				<div class="col-lg-4 col-md-6 mb-4 product-box">
 					<div class="card shadow h-100 ">
-					  <a href="/product/{{product.slug}}/{{product.id}}"><img class="img-fluid img-thumbnail "   src="/media/{{product.productattribute_set.first.image}}" class="card-img-top" alt="{{product.title}}"></a>
+					  <a href="/product/{{product.slug}}/{{product.id}}"><img height="60" class="img-fluid img-thumbnail "   src="/media/{{product.productattribute_set.first.image}}" class="card-img-top" alt="{{product.title}}"></a>
 					  <div class="card-body">
-					    <h5 class="card-text text-dark"><a class="text-dark" href="/product/{{product.slug}}/{{product.id}}">{{product.title|truncatewords:3 }}</a></h5>
-					    <h6><b>₹</b> <span class="text-bold product-price-{{product.id}}"><b>{{product.productattribute_set.first.price}}</b></span></h6>
+					    <h5 class="card-text text-dark"><a style="color: black;font-size: 15px;font-weight: bold;" class="text-dark" href="/product/{{product.slug}}/{{product.id}}">{{product.title|truncatewords:10 }}</a></h5>
+					    <h6><b>₹</b> <span  style="color: green;" class="text-bold product-price-{{product.id}}"><b>{{product.productattribute_set.first.price}}</b></h6>
 						<!-- <h5 class="card-text text-dark"><a class="text-dark" href="/product/{{product.slug}}/{{product.id}}">{{product.detail|truncatewords:5 }}</a></h5> -->
 					  </div>
 					  	<div class="card-footer">
@@ -42,7 +42,7 @@
 				          <input type="hidden" class="product-image-{{product.id}}" value="{{product.productattribute_set.first.image}}" />
 				          <input type="hidden" class="product-id-{{product.id}}" value="{{product.id}}" />
 				          <input type="hidden" class="text-dark product-title-{{product.id}}" value="{{product.title}}" />
-							  	<button class="btn btn-sm mr-2 add-to-cart btn-outline-dark" data-index="{{product.id}}"><i class="fa fa-shopping-cart"></i></button>
+							  	<button class="btn btn-sm mr-2 add-to-cart main/templates/product_list.htmlbtn-outline-dark" data-index="{{product.id}}"><i class="fa fa-shopping-cart"></i></button>
 							  	<button class="btn btn-sm  btn-outline-dark"><i class="fa fa-heart"></i></button>
 							  	<span class="float-right">
 							  		4.5/5
