@@ -19,7 +19,7 @@
 
 			
 			<!-- Filter 1 -->
-			<div class="card mb-4">
+			<!-- <div class="card mb-4">
 				<h6 class="card-header">Colors</h6>
 				<div class="list-group list-group-flush">
 					{% for color in colors %}
@@ -29,7 +29,7 @@
 					</li>
 					{% endfor %}
 				</div>
-			</div>
+			</div> -->
 			<!-- Filter 2 -->
 			<div class="card mb-4">
 				<h6 class="card-header">Categories</h6>
@@ -92,25 +92,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="headingTwo">
-				<button class="accordion-button collapsed btn w-100 btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					Colors
-				</button>
-			</h2>
-			<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-				<div class="accordion-body">
-					<div class="list-group list-group-flush">
-						{% for color in colors %}
-						<li class="list-group-item">
-							<input class="filter-checkbox" data-filter="color" value="{{color.color__id}}" type="checkbox" />&nbsp;
-							<button class="btn" style="background-color: {{color.color__color_code}}; margin-top: -5px;"></button>
-						</li>
-						{% endfor %}
-					</div>
-				</div>
-			</div>
-		</div>
+		
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="headingThree">
 				<button class="accordion-button collapsed btn w-100 btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

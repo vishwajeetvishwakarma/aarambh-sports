@@ -4305,3 +4305,34 @@ box-shadow: 22px -17px 12px -8px rgba(26,7,26,0.65);
 		margin: 0 0 30px;
 	}
 }
+
+.cart{
+	color:#343a40;
+}
+
+.badge {
+	padding-left: 9px;
+	padding-right: 9px;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+	background-color: #c67605;
+  }
+  #lblCartCount {
+	  font-size: 15px;
+	  background: #ff0000;
+	  color: #fff;
+	  padding: 0 5px;
+	  vertical-align: top;
+	  top:0px;
+	  margin-left: 15px; 
+  }
+
+
+  /* Add to cart css */
+
+  
