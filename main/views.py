@@ -19,7 +19,7 @@ from unicodedata import name
 import razorpay
 
 razorpay_client = razorpay.Client(
-    auth=("rzp_test_ABgPFZruNNbZ2p", "NdWkPyfKlGn26KSO2aAUzmf2"))
+    auth=("rzp_test_R0HM4vztT9Aix0", "g0Te87AwhKXtgdNzwusE4mh4"))
 
 
 # Home Page
