@@ -143,5 +143,6 @@ PAYPAL_TEST = True
 JET_SIDE_MENU_COMPACT = True
 
 RAZOR_KEY_ID="rzp_test_ABgPFZruNNbZ2p"
+# RAZOR_KEY_ID="rzp_test_Qjbl6UWHseSgrK"
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

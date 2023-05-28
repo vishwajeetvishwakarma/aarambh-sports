@@ -984,8 +984,8 @@ ol {
 }
 
 .product__item__pic {
-	height: 260px;
 	position: relative;
+	object-fit: fill;
 	background-position: center center;
 }
 
