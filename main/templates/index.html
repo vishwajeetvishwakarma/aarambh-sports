@@ -238,7 +238,7 @@
         <div class="row product__filter">
             
           {% for product in data %}
-          <div class="col-md-4 mb-4">
+          <div class="col-md-3 mb-4">
             <div class="card shadow product__item sale">
               <a href="/product/{{product.slug}}/{{product.id}}"><img class="mr-8 product__item__pic set-bg  " src="/media/{{product.productattribute_set.first.image}}" class="card-img-top mr-6" alt="{{product.title|truncatewords:12 }}"></a>
               <div class="card-body">
@@ -259,8 +259,9 @@
                 <button class="btn btn-sm  btn-outline-dark"><i class="fa fa-heart"></i></button>
                 {% endif %}
                 <span class="float-right">
-                  4.5/5
-                  <i class="fa fa-star text-warning"></i>
+                  <!-- 4.5/5
+                  <i class="fa fa-star text-warning"></i> -->
+                  <span class="avg-rating">{{avg_reviews.avg_rating|floatformat:0}}</span>/5 <i class="fa fa-star text-warning"></i>
                 </span>
               </div>
             </div>

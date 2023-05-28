@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from .forms import SignupForm, ReviewAdd, AddressBookForm, ProfileForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 # paypal
 from django.urls import reverse
 from django.conf import settings
@@ -19,14 +20,17 @@ from unicodedata import name
 import razorpay
 
 razorpay_client = razorpay.Client(
-    auth=("rzp_test_R0HM4vztT9Aix0", "g0Te87AwhKXtgdNzwusE4mh4"))
+    auth=("rzp_test_Qjbl6UWHseSgrK", "3SmKhSUeGEzxSxx9C"))
 
 
 # Home Page
 def home(request):
     banners = Banner.objects.all().order_by('-id')
-    data = Product.objects.filter(is_featured=True).order_by('-created')[:5]
-    return render(request, 'index.html', {'data': data, 'banners': banners})
+    products = Product.objects.all()
+    avg_reviews = ProductReview.objects.filter(product__in=products).aggregate(avg_rating=Avg('review_rating'))
+   
+    data = Product.objects.filter(is_featured=True).order_by('-created')[:8]
+    return render(request, 'index.html', {'data': data, 'banners': banners,'avg_reviews': avg_reviews})
 
 # Category
 
@@ -92,7 +96,9 @@ def product_detail(request, slug, id):
         'size__id', 'size__title', 'price', 'color__id').distinct()
     reviewForm = ReviewAdd()
 
+    
     # Check
+    
     canAdd = True
     if request.user.is_authenticated:
         reviewCheck = ProductReview.objects.filter(
@@ -289,7 +295,7 @@ def checkout(request):
                                                            payment_capture=0))
 
         # order id of newly created order.
-        razorpay_order_id = razorpay_order['id']
+        razorpay_order_id = pay_order_['id']
         callback_url = 'paymenthandler/'
 
         # we need to pass these details to frontend.
@@ -429,7 +435,10 @@ def save_review(request, pid):
         product=product).aggregate(avg_rating=Avg('review_rating'))
     # End
 
-    return JsonResponse({'bool': True, 'data': data, 'avg_reviews': avg_reviews})
+    # return JsonResponse({'bool': True, 'data': data, 'avg_reviews': avg_reviews})
+    return HttpResponseRedirect('/product-list')
+    # return HttpResponseRedirect('/product_detail')
+  
 
 
 # User Dashboard

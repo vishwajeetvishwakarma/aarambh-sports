@@ -45,8 +45,9 @@
 							  	<button class="btn btn-sm mr-2 add-to-cart main/templates/product_list.htmlbtn-outline-dark" data-index="{{product.id}}"><i class="fa fa-shopping-cart"></i></button>
 							  	<button class="btn btn-sm  btn-outline-dark"><i class="fa fa-heart"></i></button>
 							  	<span class="float-right">
-							  		4.5/5
-							  		<i class="fa fa-star text-warning"></i>
+							  		<!-- 4.5/5
+							  		<i class="fa fa-star text-warning"></i> -->
+									  <h3 class="my-3">Reviews - <span class="avg-rating">{{avg_reviews.avg_rating|floatformat:0}}</span>/5 <i class="fa fa-star text-warning"></i>
 							  	</span>
 					  	</div>
 					</div>
